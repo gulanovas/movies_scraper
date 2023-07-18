@@ -19,13 +19,11 @@ const moviesScraper = new MoviesScraper();
   })
 
   const movies = []
-  for (let i = 0; i < titles.length; i++) {
-    const titleList = titles[i]
+  titles.forEach((titleList, i) => {
     const ratingList = ratings[i]
     const vodService = vodServices[i]
 
-    for (let j = 0; j < titleList.length; j++) {
-      const title = titleList[j]
+    titleList.forEach((title, j) => {
       const rating = ratingList[j]
       if (rating !== undefined) {
         movies.push({
@@ -34,8 +32,8 @@ const moviesScraper = new MoviesScraper();
           rating
         })
       }
-    }
-  }
+    })
+  })
 
   movies.sort((a, b) => b.rating - a.rating)
 

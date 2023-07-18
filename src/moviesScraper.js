@@ -7,7 +7,6 @@ class MoviesScraper {
       const response = await axios.get(link)
       const $ = load(response.data)
       const elements = $(selector).slice(0, limit)
-      // Get text of each element in the elements array and stores it in the data array.
       const data = elements.map((_index, element) => $(element).text()).get()
       return data
     } catch (error) {
